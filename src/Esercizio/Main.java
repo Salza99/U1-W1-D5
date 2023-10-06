@@ -25,13 +25,14 @@ public class Main {
     }
 
     public static void runApplication(){
-        boolean open = true;
+
         ElementiMultimediali[] store = new ElementiMultimediali[]{};
         Scanner input = new Scanner(System.in);
         System.out.println("Iniziamo creando la tua libreria di 5 oggetti,");
         System.out.println("potrai scegliere se aggiungere video, immagini o registrazioni audio");
         System.out.println("premi 1 per proseguire, 2 per accedere alla libreria (al momento è vuota), 0 per terminare il processo");
         String resp = input.nextLine();
+        boolean open = true;
         while (open) {if (resp.equals("1")){
             System.out.println("scegli se inserire: ");
             System.out.println("un'immagine(img), un video(video), una traccia audio(mp3) oppure 2 per accedere alla tua libreria e 0 per uscire dal programma");
@@ -46,6 +47,9 @@ public class Main {
                 if (resp.equals("1")){
                     break;
                 } else if (resp.equals("2")) {
+                    boolean openMenuStore= true;
+                    while(openMenuStore){
+
                     System.out.println("i tuoi contenuti sono: ");
 
                     for (ElementiMultimediali elemento : store) {
@@ -63,37 +67,89 @@ public class Main {
                         resp = "1";
                     } else {
                         System.out.println("seleziona tramite il titolo del file il contenuto da mostrare");
-                        System.out.println("0 per chiudere il programma 1 per tornare indietro");
+                        System.out.println("0 per tornare indietro");
                         resp = input.nextLine();
                     }
                     for (ElementiMultimediali elemento: store) {
                         if (resp.equals("0")) {
-                            System.out.println("programma in chiusura");
-                            input.close();
-                            open = false;
+                            System.out.println("chiudo il menu selezione");
+                            openMenuStore = false;
                             break;
                         } else if (resp.equals(elemento.getTitolo())) {
                             if (elemento instanceof Immagini) {
+                                System.out.println("hai selezionato " + elemento.getTitolo());
                                 ((Immagini) elemento).show();
+                                System.out.println("digita lum+ per aumentare la luminosità (lumMax: 3), lum- per diminuirla (lumMin: 1)");
+                                System.out.println("altrimenti 0 per tornare indietro");
+                                resp = input.nextLine();
+                                switch (resp){
+                                    case "lum+":
+                                        ((Immagini) elemento).aumentaLuminosita();
+                                        System.out.println("ecco l'immagine con luminosità aumentata: ");
+                                        ((Immagini) elemento).show();
+                                        break;
+                                    case "lum-":
+                                        ((Immagini) elemento).diminuisciLuminosita();
+                                        System.out.println("ecco l'immagine con luminosità diminuita: ");
+                                        ((Immagini) elemento).show();
+                                        break;
+                                    default:
+                                        System.out.println("comando non riconosciuto");
+                                        break;
+                                }
                             } else if (elemento instanceof Video) {
+                                System.out.println("hai selezionato " + elemento.getTitolo());
                                 ((Video) elemento).play();
+                                System.out.println("digita lum+ per aumentare la luminosità (lumMax: 3), lum- per diminuirla (lumMin: 1)");
+                                System.out.println("digita vol+ per aumentare il volume (volMax: 3), vol- per diminuirlo (volmin: 0)");
+                                System.out.println("altrimenti 0 per tornare indietro");
+                                resp = input.nextLine();
+                                switch (resp){
+                                    case "lum+":
+                                        ((Video) elemento).aumentaLuminosita();
+                                        System.out.println("ecco il video con luminosità aumentata: ");
+                                        ((Video) elemento).play();
+                                        break;
+                                    case "lum-":
+                                        ((Video) elemento).diminuisciLuminosita();
+                                        System.out.println("ecco il video con luminosità diminuita: ");
+                                        ((Video) elemento).play();
+                                        break;
+                                    case "vol+":
+                                        ((Video) elemento).alzaVolume();
+                                        System.out.println("ecco il video con volume aumentato");
+                                        ((Video) elemento).play();
+                                        break;
+                                    case "vol-":
+                                        ((Video) elemento).abbassaVolume();
+                                        System.out.println("ecco il video con volume abbassato");
+                                        ((Video) elemento).play();
+                                        break;
+                                    default:
+                                        System.out.println("comando non riconosciuto");
+                                        break;
+
+                                }
+
                             } else if (elemento instanceof RegistrazioneAudio) {
+                                System.out.println("hai selezionato " + elemento.getTitolo());
                                 ((RegistrazioneAudio) elemento).play();
+
                             }
+                        } else if (resp.equals("1")) {
+                            break;
                         }
 
 
                     }
                     if (resp.equals("0")) {
                         System.out.println("programma in chiusura");
-                        input.close();
                         open = false;
                         break;
-                    }
+                    }}
                 } else if (resp.equals("0")) {
                     System.out.println("programma in chiusura");
-                    input.close();
-                    open = false;
+
                     break;
                 } else {
 
@@ -102,9 +158,8 @@ public class Main {
             }
         } else if (resp.equals("0")) {
             System.out.println("programma in chiusura");
-            input.close();
             open = false;
-            break;
+            input.close();
         } else {
             System.out.println("comando non riconosciuto");
             System.out.println("premi 1 per proseguire, 2 per accedere alla libreria (al momento è vuota), 0 per terminare il processo");

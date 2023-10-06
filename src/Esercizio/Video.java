@@ -40,20 +40,36 @@ public class Video extends ElementiMultimediali implements Riproducibile, Lumino
 
     @Override
     public void alzaVolume() {
-        System.out.println("volume alzato");
+        if (this.volume < 3) {
+            volume += 1;
+        }else{
+            System.out.println("volume massimo raggiunto");
+        }
     }
 
     @Override
     public void abbassaVolume() {
-        System.out.println("volume abbassato");
+        if (this.volume > 0) {
+            volume -= 1;
+        }else {
+            System.out.println("il volume del video è gia muto");
+        }
     }
     @Override
     public void aumentaLuminosita() {
-        System.out.println("aumenta lum.");
+        if (this.luminosita < 3) {
+            luminosita += 1;
+        }else {
+            System.out.println("luminosità massima raggiunta");
+        }
     }
 
     @Override
     public void diminuisciLuminosita() {
-        System.out.println("diminuisci lum");
+        if (this.luminosita > 1) {
+            luminosita -= 1;
+        }else {
+            System.out.println("luminosità minima raggiunta");
+        }
     }
 }

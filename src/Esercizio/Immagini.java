@@ -23,11 +23,19 @@ public class Immagini extends ElementiMultimediali implements Luminosita{
     // Override e Overload
     @Override
     public void aumentaLuminosita() {
-        System.out.println("aumenta lum.");
+        if (this.luminosita < 3) {
+            luminosita += 1;
+        }else {
+            System.out.println("luminosità massima raggiunta");
+        }
     }
 
     @Override
     public void diminuisciLuminosita() {
-        System.out.println("diminuisci lum");
+        if (this.luminosita > 1) {
+            luminosita -= 1;
+        }else {
+            System.out.println("luminosità minima raggiunta");
+        }
     }
 }
