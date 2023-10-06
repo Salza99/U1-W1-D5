@@ -18,15 +18,19 @@ public class Main {
     runApplication();
     }
         // override
-    
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public static void runApplication(){
         boolean open = true;
         ElementiMultimediali[] store = new ElementiMultimediali[]{};
         Scanner input = new Scanner(System.in);
         System.out.println("Iniziamo creando la tua libreria di 5 oggetti,");
         System.out.println("potrai scegliere se aggiungere video, immagini o registrazioni audio");
-        System.out.println("scegli se inserire: ");
-        System.out.println("un'immagine(img), un video(video), una traccia audio(mp3) o uscire dal programma(0)");
+        System.out.println("premi 1 per proseguire, 2 per accedere alla libreria (al momento è vuota), 0 per terminare il processo");
         String resp = input.nextLine();
         while (open) {if (resp.equals("1")){
             System.out.println("scegli se inserire: ");
@@ -37,20 +41,38 @@ public class Main {
             while (openMenu) {
                 System.out.println("Benvenuto dai un'occhiata alla tua libreria");
                 System.out.println("Al momento contiene: " + store.length + " elementi");
-                System.out.println("premi 1 per inserire un nuovo elemento, 2 per visualizzarli");
+                System.out.println("premi 1 per inserire un nuovo elemento, 2 per visualizzarli, 0 per terminare il processo");
                 resp = input.nextLine();
                 if (resp.equals("1")){
                     break;
                 } else if (resp.equals("2")) {
                     System.out.println("i tuoi contenuti sono: ");
-                    System.out.println(store.toString());
-                }
-                else {
+                    for (ElementiMultimediali elemento : store) {
+                        if (elemento instanceof Immagini) {
+                            System.out.println("Immagine " + elemento.getTitolo());
+                        } else if (elemento instanceof Video) {
+                            System.out.println("Video " + elemento.getTitolo());
+                        }else {
+                            System.out.println("Mp3 " + elemento.getTitolo());
+                        }
+                    }
+                    
+                } else if (resp.equals("0")) {
+                    System.out.println("programma in chiusura");
+                    input.close();
+                    open = false;
+                    break;
+                } else {
 
                     resp = "2";
                 }
             }
-        }else {resp = "1";}
+        } else if (resp.equals("0")) {
+            System.out.println("programma in chiusura");
+            input.close();
+            open = false;
+            break;
+        } else {resp = "1";}
 
 
             switch(resp){

@@ -57,4 +57,5 @@ public class RegistrazioneAudio extends ElementiMultimediali implements Riproduc
     public void abbassaVolume() {
         System.out.println("volume abbassato");
     }
+
 }
