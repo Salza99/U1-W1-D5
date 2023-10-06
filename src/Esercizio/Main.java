@@ -25,10 +25,9 @@ public class Main {
     }
 
     public static void runApplication(){
-
         ElementiMultimediali[] store = new ElementiMultimediali[]{};
         Scanner input = new Scanner(System.in);
-        System.out.println("Iniziamo creando la tua libreria di 5 oggetti,");
+        System.out.println("Iniziamo creando la tua libreria");
         System.out.println("potrai scegliere se aggiungere video, immagini o registrazioni audio");
         System.out.println("premi 1 per proseguire, 2 per accedere alla libreria (al momento è vuota), 0 per terminare il processo");
         String resp = input.nextLine();
@@ -190,72 +189,67 @@ public class Main {
                     input.close();
                     open = false;
                     break;
-
-                        case "img":
-                            ElementiMultimediali[] storeImg = new ElementiMultimediali[store.length + 1];
-                            System.out.println("inserisci titolo immagine");
-                            resp = input.nextLine();
-                            Immagini a = new Immagini(resp);
-                            for (int i = 0; i < storeImg.length; i++) {
-                            if (i == storeImg.length -1) {
-                                storeImg[i] = a;
-                            }else {
-                                storeImg[i] = store[i];
-                            }
-                            }
-                            store = storeImg;
-                            System.out.println("immagine inserita con successo");
-                            System.out.println("la tua libreria contiene: " + store.length + " elementi");
-                            System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
-                            resp = input.nextLine();
-                                break;
-                                case "video":
-                                ElementiMultimediali[] storeVideo = new ElementiMultimediali[store.length + 1];
-                                System.out.println("inserisci titolo video");
-                                resp = input.nextLine();
-                                Video b = new Video(resp);
-                                System.out.println("inserisci durata video");
-                                resp = input.nextLine();
-                                b.setDurata(Integer.parseInt(resp));
-                                for (int i = 0; i < storeVideo.length; i++) {
-                                if (i == storeVideo.length -1) {
-                                storeVideo[i] = b;
-                                    }else {
-                                storeVideo[i] = store[i];
-                                    }
-                                }
-                                store = storeVideo;
-                                System.out.println("immagine inserita con successo");
-                                System.out.println("la tua libreria contiene: " + store.length + " elementi");
-                                System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
-                                resp = input.nextLine();
-                                break;
-                            case "mp3":
-                                ElementiMultimediali[] storeMp3 = new ElementiMultimediali[store.length + 1];
-                                System.out.println("inserisci titolo mp3");
-                                resp = input.nextLine();
-                                RegistrazioneAudio c = new RegistrazioneAudio(resp);
-                                System.out.println("inserisci durata registrazione");
-                                resp = input.nextLine();
-                                c.setDurata(Integer.parseInt(resp));
-                                for (int i = 0; i < storeMp3.length; i++) {
-                                    if (i == storeMp3.length -1) {
-                                        storeMp3[i] = c;
-                                    }else {
-                                        storeMp3[i] = store[i];
-                                        }
-                                }
-                                store = storeMp3;
-                                System.out.println("Audio inserito con successo");
-                                System.out.println("la tua libreria contiene: " + store.length + " elementi");
-                                System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
-                                resp = input.nextLine();
-                                break;
+                case "img":
+                    ElementiMultimediali[] storeImg = new ElementiMultimediali[store.length + 1];
+                    System.out.println("inserisci titolo immagine");
+                    resp = input.nextLine();
+                    Immagini a = new Immagini(resp);
+                    for (int i = 0; i < storeImg.length; i++) {
+                        if (i == storeImg.length -1) {
+                            storeImg[i] = a;
+                        }else {
+                            storeImg[i] = store[i];
+                        }
+                    }
+                    store = storeImg;
+                    System.out.println("immagine inserita con successo");
+                    System.out.println("la tua libreria contiene: " + store.length + " elementi");
+                    System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
+                    resp = input.nextLine();
+                    break;
+                case "video":
+                    ElementiMultimediali[] storeVideo = new ElementiMultimediali[store.length + 1];
+                    System.out.println("inserisci titolo video");
+                    resp = input.nextLine();
+                    Video b = new Video(resp);
+                    System.out.println("inserisci durata video");
+                    resp = input.nextLine();
+                    b.setDurata(Integer.parseInt(resp));
+                    for (int i = 0; i < storeVideo.length; i++) {
+                        if (i == storeVideo.length -1) {
+                            storeVideo[i] = b;
+                        }else {
+                            storeVideo[i] = store[i];
+                        }
+                    }
+                    store = storeVideo;
+                    System.out.println("immagine inserita con successo");
+                    System.out.println("la tua libreria contiene: " + store.length + " elementi");
+                    System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
+                    resp = input.nextLine();
+                    break;
+                case "mp3":
+                    ElementiMultimediali[] storeMp3 = new ElementiMultimediali[store.length + 1];
+                    System.out.println("inserisci titolo mp3");
+                    resp = input.nextLine();
+                    RegistrazioneAudio c = new RegistrazioneAudio(resp);
+                    System.out.println("inserisci durata registrazione");
+                    resp = input.nextLine();
+                    c.setDurata(Integer.parseInt(resp));
+                    for (int i = 0; i < storeMp3.length; i++) {
+                        if (i == storeMp3.length -1) {
+                            storeMp3[i] = c;
+                        }else {
+                            storeMp3[i] = store[i];
+                        }
+                    }
+                    store = storeMp3;
+                    System.out.println("Audio inserito con successo");
+                    System.out.println("la tua libreria contiene: " + store.length + " elementi");
+                    System.out.println("(1) inserire un altro elemento, (2) accedi al menu selezione");
+                    resp = input.nextLine();
+                    break;
             }
-
-
-
-
         }
     }
 }
