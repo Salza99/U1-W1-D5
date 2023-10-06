@@ -253,3 +253,4 @@ public class Main {
         }
     }
 }
+// trovato un errore di codice che non permette di tornare all'inserimento di contenuti una volta entrati nel menu di visualizzazione dei contenuti
