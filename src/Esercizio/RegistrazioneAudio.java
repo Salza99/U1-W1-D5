@@ -21,6 +21,14 @@ public class RegistrazioneAudio extends ElementiMultimediali implements Riproduc
     //Getter e Setter
 
 
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
     public int getDurata() {
         return durata;
     }
@@ -36,8 +44,8 @@ public class RegistrazioneAudio extends ElementiMultimediali implements Riproduc
         for (int i = 0; i < this.volume; i++) {
             visulizzazioneVolume += "!";
         }
-        for (int i = 0; i < this.durata; i++) {
-            System.out.println(this.getTitolo() + " volume: " + visulizzazioneVolume);
+        for (int i = 1; i <= this.durata; i++) {
+            System.out.println("minuto: " + i + " " +  this.getTitolo() + " volume: " + visulizzazioneVolume);
         }
     }
     @Override

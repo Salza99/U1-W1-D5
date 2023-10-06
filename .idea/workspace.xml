@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54dc31db-d033-4ac5-a47d-70ea9f4c4548" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Esercizio/Luminosita.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Esercizio/Immagini.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Esercizio/Immagini.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Esercizio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Esercizio/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Esercizio/RegistrazioneAudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Esercizio/RegistrazioneAudio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Esercizio/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Esercizio/Video.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/io/Desktop/EPICODE/BE/U1-W1-D4",
     "onboarding.tips.debug.path": "C:/Users/io/Desktop/EPICODE/BE/U1-W1-D5/src/Main.java"
   }
 }]]></component>
