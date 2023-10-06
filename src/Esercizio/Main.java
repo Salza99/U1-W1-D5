@@ -5,6 +5,7 @@ package Esercizio;
 public class Main {
     public static void main(String[] args) {
 
-
+RegistrazioneAudio a = new RegistrazioneAudio("Bella Ciao", 3);
+a.play();
     }
 }

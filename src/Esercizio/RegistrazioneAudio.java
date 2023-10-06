@@ -2,16 +2,43 @@ package Esercizio;
 
 public class RegistrazioneAudio extends ElementiMultimediali implements Riproducibile{
 
+    //proprietà Registrazione
     private int durata= 0;
     private int volume= 0;
 
+
+    //Costruttori
     public RegistrazioneAudio(String titolo) {
         super(titolo);
     }
 
+    public RegistrazioneAudio(String titolo, int durata) {
+        super(titolo);
+        this.durata = durata;
+        this.volume = 2;
+    }
+
+    //Getter e Setter
+
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    // Override e Overload
     @Override
     public void play() {
-        System.out.println("riproduci traccia");
+        String visulizzazioneVolume = "";
+        for (int i = 0; i < this.volume; i++) {
+            visulizzazioneVolume += "!";
+        }
+        for (int i = 0; i < this.durata; i++) {
+            System.out.println(this.getTitolo() + " volume: " + visulizzazioneVolume);
+        }
     }
     @Override
     public void alzaVolume() {
