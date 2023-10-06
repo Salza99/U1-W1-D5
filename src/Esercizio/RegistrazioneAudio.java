@@ -4,7 +4,7 @@ public class RegistrazioneAudio extends ElementiMultimediali implements Riproduc
 
     //proprietà Registrazione
     private int durata= 0;
-    private int volume= 0;
+    private int volume= 2;
 
 
     //Costruttori

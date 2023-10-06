@@ -47,7 +47,9 @@ public class Main {
                     break;
                 } else if (resp.equals("2")) {
                     System.out.println("i tuoi contenuti sono: ");
+
                     for (ElementiMultimediali elemento : store) {
+
                         if (elemento instanceof Immagini) {
                             System.out.println("Immagine " + elemento.getTitolo());
                         } else if (elemento instanceof Video) {
@@ -56,7 +58,38 @@ public class Main {
                             System.out.println("Mp3 " + elemento.getTitolo());
                         }
                     }
-                    
+                    if (store.length == 0) {
+                        System.out.println("mi spiace ma non hai elementi da visualizzare");
+                        resp = "1";
+                    } else {
+                        System.out.println("seleziona tramite il titolo del file il contenuto da mostrare");
+                        System.out.println("0 per chiudere il programma 1 per tornare indietro");
+                        resp = input.nextLine();
+                    }
+                    for (ElementiMultimediali elemento: store) {
+                        if (resp.equals("0")) {
+                            System.out.println("programma in chiusura");
+                            input.close();
+                            open = false;
+                            break;
+                        } else if (resp.equals(elemento.getTitolo())) {
+                            if (elemento instanceof Immagini) {
+                                ((Immagini) elemento).show();
+                            } else if (elemento instanceof Video) {
+                                ((Video) elemento).play();
+                            } else if (elemento instanceof RegistrazioneAudio) {
+                                ((RegistrazioneAudio) elemento).play();
+                            }
+                        }
+
+
+                    }
+                    if (resp.equals("0")) {
+                        System.out.println("programma in chiusura");
+                        input.close();
+                        open = false;
+                        break;
+                    }
                 } else if (resp.equals("0")) {
                     System.out.println("programma in chiusura");
                     input.close();
@@ -72,7 +105,11 @@ public class Main {
             input.close();
             open = false;
             break;
-        } else {resp = "1";}
+        } else {
+            System.out.println("comando non riconosciuto");
+            System.out.println("premi 1 per proseguire, 2 per accedere alla libreria (al momento è vuota), 0 per terminare il processo");
+            resp = input.nextLine();
+        }
 
 
             switch(resp){
