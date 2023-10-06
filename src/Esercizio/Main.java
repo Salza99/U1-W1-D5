@@ -128,13 +128,29 @@ public class Main {
                                     default:
                                         System.out.println("comando non riconosciuto");
                                         break;
-
                                 }
-
                             } else if (elemento instanceof RegistrazioneAudio) {
                                 System.out.println("hai selezionato " + elemento.getTitolo());
                                 ((RegistrazioneAudio) elemento).play();
+                                System.out.println("digita vol+ per aumentare il volume (volMax: 3), vol- per diminuirlo (volmin: 0)");
+                                System.out.println("altrimenti 0 per tornare indietro");
+                                resp = input.nextLine();
+                                switch (resp){
+                                    case "vol+":
+                                        ((RegistrazioneAudio) elemento).alzaVolume();
+                                        System.out.println("ecco il video con volume aumentato");
+                                        ((RegistrazioneAudio) elemento).play();
+                                        break;
+                                    case "vol-":
+                                        ((RegistrazioneAudio) elemento).abbassaVolume();
+                                        System.out.println("ecco il video con volume abbassato");
+                                        ((RegistrazioneAudio) elemento).play();
+                                        break;
+                                    default:
+                                        System.out.println("comando non riconosciuto");
+                                        break;
 
+                                }
                             }
                         } else if (resp.equals("1")) {
                             break;

@@ -50,12 +50,20 @@ public class RegistrazioneAudio extends ElementiMultimediali implements Riproduc
     }
     @Override
     public void alzaVolume() {
-        System.out.println("volume alzato");
+        if (this.volume < 3) {
+            volume += 1;
+        }else{
+            System.out.println("volume massimo raggiunto");
+        }
     }
 
     @Override
     public void abbassaVolume() {
-        System.out.println("volume abbassato");
+        if (this.volume > 0) {
+            volume -= 1;
+        }else {
+            System.out.println("il volume è mutato");
+        }
     }
 
 }
